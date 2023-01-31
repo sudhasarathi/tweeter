@@ -23,6 +23,9 @@
     <!-- new-tweet-css -->
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css"/>
 
+    <!-- display-Tweets-css -->
+    <link rel="stylesheet" href="/styles/display-tweets.css" type="text/css"/>
+
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,7 +48,7 @@
     <nav>
     
       <span class="bungee">tweeter</span>
-      <div class="flex-container-col">
+      <div class="profile flex-container-col">
       <span><b>write</b> a new tweet</span>
       <i class="red-icon fas fa-angle-double-down"></i>
     </div>
@@ -63,7 +66,6 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
         <form method="POST" action="/tweets/">
           <label class="tweet-post-label" for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text" ></textarea>
@@ -72,7 +74,30 @@
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
-      </section></main>
+      </section>
+      <section>
+        <article class="tweet">
+          <header class="flex-container-row">
+            <div class="profile-pic-username flex-container-row">
+              <i class="far fa-user"></i>
+              <p>Sudha</p>
+            </div>
+            <p class="handle">@SudPar</p>
+          </header>
+          <section class="tweet-content">
+            <p>An example tweet's text, Lorem ipsum or something like that</p>
+          </section>
+          <footer>
+            <p class="time-created">15 days ago</p>
+            <div>
+              <i class="fas fa-flag"></i>
+              <i class="fas fa-retweet"></i>
+              <i class="fas fa-heart"></i>
+            </div>
+          </footer>
+        </article>
+      </section>
+    </main>
       <script type="text/javascript" src="./scripts/composer-char-counter.js"></script>
   </body>
 </html>
