@@ -1,8 +1,13 @@
 header {
   height: 400px;
   width: 100%;
+  display: flex;
   background-color: coral;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   color: #FFFFFF;
-  margin: 0 0 0 0;
+  margin: 120px 0 0 0;
   background-image: url('../images/brick-wall-dark.png');
+  
 }
