@@ -11,3 +11,10 @@ header {
   background-image: url('../images/brick-wall-dark.png');
   
 }
+
+header h2 {
+  font-weight: 500;
+}
+header b {
+  font-weight: 700;
+}
