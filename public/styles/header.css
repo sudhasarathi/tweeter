@@ -1,0 +1,8 @@
+header {
+  height: 400px;
+  width: 100%;
+  background-color: coral;
+  color: #FFFFFF;
+  margin: 0 0 0 0;
+  background-image: url('../images/brick-wall-dark.png');
+}
