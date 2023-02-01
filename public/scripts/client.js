@@ -34,9 +34,10 @@ return newTweet;
 
 // Loops through tweet database object, uses createTweetElement()
 const renderTweets = (data) => {
+  $('#tweets-container').empty();
   for (const tweet of data) {
     const newTweet = createTweetElement(tweet);
-    $( '#tweets-container' ).append(newTweet);
+    $('#tweets-container').append(newTweet);
   }
 };
 
