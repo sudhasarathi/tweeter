@@ -20,7 +20,7 @@ const createTweetElement = (data) => {
       <p class="handle">${data.user.handle}</p>
     </header>
     <section class="tweet-content">
-      <p>${data.content.text}</p>
+      <p>${escape(data.content.text)}</p>
     </section>
     <footer>
       <p class="time-created">${timeago.format(data.created_at)}</p>
@@ -43,16 +43,22 @@ const renderTweets = (data) => {
     $('#tweets-container').append(newTweet);
   }
 };
+
+// Loops through tweet database object, uses createTweetElement() to generate an article then appends the return value to the section
 const renderTweet = (data) => {
   const newTweet = createTweetElement(data);
   $( '#tweets-container' ).prepend(newTweet);
 };
+
+// Makes get request to tweets database at /tweets then uses renderTweets to loop through  the database and render each tweet as an article.
   const loadTweets = () => {
     $.get('/tweets').then((data) => {
       renderTweets(data);
       $('#tweet-text').val('');
     });
   };
+
+  // Makes get request to tweets database at /tweets then uses renderTweet to render the most recent tweet in the database
   const loadNewTweet = () => {
     $.get('/tweets').then((data) => {
       renderTweet(data[data.length - 1]);
@@ -60,6 +66,26 @@ const renderTweet = (data) => {
       $( 'output.counter' ).val(140);
     });
   };
+
+  // Function escapes the string inputted by the user to avoid any XSS attacks
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+// display error validation message
+  const newTweetError = (message) => {
+    $( '#new-tweet-err-msg' ).text(message);
+    $( '#new-tweet-error' ).show();
+  };
+  
+  // hide and close the error messges
+  const closeNewTweetError = () => {
+    $( '#new-tweet-error' ).hide();
+    $( '#new-tweet-err-msg' ).text('');
+  };
+
 ///Makes get request to tweets database at /tweets
 // then uses renderTweets to loop through  the database
 // and render each tweet as an article.
@@ -70,14 +96,15 @@ $( document ).ready(function() {
     const tweetData = $(this).serialize();
     const charCount = Number($( 'output.counter' ).val());
     if (charCount === EMPTY_TWEET_CHAR_COUNT) {
-      alert("Please enter a tweet before tweeting!");
+      newTweetError('please enter a tweet before tweeting');
       return;
     } else if (charCount < MAX_TWEET_CHAR_COUNT) {
-      alert("enter within 140 characters!!");
+      newTweetError('please enter within 140 characters!!')
       return;
     }
     $.post('/tweets/', tweetData).then(() => {
      loadNewTweet();
+     closeNewTweetError();
     });
   });
 

@@ -29,6 +29,9 @@
     <!-- display-Tweets-css -->
     <link rel="stylesheet" href="/styles/display-tweets.css" type="text/css"/>
 
+    <!-- new tweet error-css -->
+    <link rel="stylesheet" href="/styles/new-tweet-error.css" type="text/css"/>
+
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,7 +55,7 @@
     
       <span class="bungee">tweeter</span>
       <div class="profile flex-container-col">
-      <span><b>write</b> a new tweet</span>
+      <span><b>Write</b> a new tweet</span>
       <i class="red-icon fas fa-angle-double-down"></i>
     </div>
     </nav>
@@ -66,9 +69,16 @@
       </div>
   </header>
 
-    <!-- Page-specific (main) content here -->
+    <!-- Form for creating a  new tweet -->
+  <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
+        <section id="new-tweet-error">
+          <div class="error-container flex-container-row">
+            <i class="text-red fas fa-exclamation-circle"></i>
+            <p id="new-tweet-err-msg" class="text-red"></p>
+          </div>
+        </section>
         <form method="POST" action="/tweets/">
           <label class="tweet-post-label" for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text" ></textarea>
