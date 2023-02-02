@@ -40,16 +40,16 @@ const renderTweets = (data) => {
     $('#tweets-container').append(newTweet);
   }
 };
-const loadTweets = () => {
-  $.get('/tweets').then((data) => {
-    renderTweets(data);
-  });
-};
-
+  const loadTweets = () => {
+    $.get('/tweets').then((data) => {
+      renderTweets(data);
+    });
+  };
+///Makes get request to tweets database at /tweets
+// then uses renderTweets to loop through  the database
+// and render each tweet as an article.
 $( document ).ready(function() {
-
-  
-
+  loadTweets();
   $('.new-tweet form').submit(function(event) {
     event.preventDefault();
     const tweetData = $(this).serialize();
