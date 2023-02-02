@@ -5,6 +5,9 @@
  */
 
 // Creates an article for tweet object uses timeago
+// determining if textarea in new tweet form is either FULL or EMPTY
+const EMPTY_TWEET_CHAR_COUNT = 140;
+const MAX_TWEET_CHAR_COUNT = 0;
 
 const createTweetElement = (data) => {
   const newTweet = `
@@ -35,14 +38,26 @@ return newTweet;
 // Loops through tweet database object, uses createTweetElement()
 const renderTweets = (data) => {
   $('#tweets-container').empty();
-  for (const tweet of data) {
-    const newTweet = createTweetElement(tweet);
+  for (let i = data.length - 1; i >= 0; i --) {
+    const newTweet = createTweetElement(data[i]);
     $('#tweets-container').append(newTweet);
   }
+};
+const renderTweet = (data) => {
+  const newTweet = createTweetElement(data);
+  $( '#tweets-container' ).prepend(newTweet);
 };
   const loadTweets = () => {
     $.get('/tweets').then((data) => {
       renderTweets(data);
+      $('#tweet-text').val('');
+    });
+  };
+  const loadNewTweet = () => {
+    $.get('/tweets').then((data) => {
+      renderTweet(data[data.length - 1]);
+      $( '#tweet-text' ).val('');
+      $( 'output.counter' ).val(140);
     });
   };
 ///Makes get request to tweets database at /tweets
@@ -54,15 +69,15 @@ $( document ).ready(function() {
     event.preventDefault();
     const tweetData = $(this).serialize();
     const charCount = Number($( 'output.counter' ).val());
-    if (charCount === 140) {
+    if (charCount === EMPTY_TWEET_CHAR_COUNT) {
       alert("Please enter a tweet before tweeting!");
       return;
-    } else if (charCount < 0) {
-      alert("Please keep tweet within 140 characters in length!");
+    } else if (charCount < MAX_TWEET_CHAR_COUNT) {
+      alert("enter within 140 characters!!");
       return;
     }
     $.post('/tweets/', tweetData).then(() => {
-     loadTweets();
+     loadNewTweet();
     });
   });
 
