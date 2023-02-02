@@ -86,11 +86,30 @@ const renderTweet = (data) => {
     $( '#new-tweet-err-msg' ).text('');
   };
 
+  // Toggle slideUp/SlideDown for create tweet section
+  const toggleCreateTweet = () => {
+    $( '#new-tweet-form' ).slideToggle();
+    $( '#tweet-text' ).focus();
+  };
+
 ///Makes get request to tweets database at /tweets
 // then uses renderTweets to loop through  the database
 // and render each tweet as an article.
 $( document ).ready(function() {
+
+// click on nav write new tweet button
+  $( 'nav #compose-tweet-btn' ).click(function() {
+    toggleCreateTweet();
+  });
+// click on to top button
+  $( '#scroll-to-new-tweet' ).click(function() {
+    $( '#new-tweet-form' ).slideDown();
+    $( '#tweet-text' ).focus();
+    $( window ).scrollTop();
+  });
+
   loadTweets();
+
   $('.new-tweet form').submit(function(event) {
     event.preventDefault();
     const tweetData = $(this).serialize();

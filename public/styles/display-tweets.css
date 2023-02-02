@@ -25,6 +25,11 @@ div.profile-pic-username i {
   margin-right: 0.5em
 }
 
+div.profile-pic-username img {
+  height: 45px;
+  margin-right: 0.25em;
+}
+
 .handle {
   color: #C5CBE2;
 }
