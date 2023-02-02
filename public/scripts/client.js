@@ -53,8 +53,16 @@ $( document ).ready(function() {
   $('.new-tweet form').submit(function(event) {
     event.preventDefault();
     const tweetData = $(this).serialize();
+    const charCount = Number($( 'output.counter' ).val());
+    if (charCount === 140) {
+      alert("Please enter a tweet before tweeting!");
+      return;
+    } else if (charCount < 0) {
+      alert("Please keep tweet within 140 characters in length!");
+      return;
+    }
     $.post('/tweets/', tweetData).then(() => {
-      loadTweets();
+     loadTweets();
     });
   });
 
