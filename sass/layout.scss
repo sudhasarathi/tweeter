@@ -6,7 +6,6 @@
 html {
   box-sizing: border-box;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -14,33 +13,32 @@ html {
 /*
  * Global layout stuff
  */
+
 body {
   color: #44423d;
   background-color: #fae9cb;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 24px;
-}
 
-main.container {
+}
+main.container{
   display: flex;
   margin: 1em 5% 0 5%;
   height: auto;
   flex-direction: column;
-  justify-content: center;
+  justify-content:  center;
   width: 90%;
 }
 
 .flex-container-row {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
-
 .flex-container-col {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .text-red {
   color: red;
 }

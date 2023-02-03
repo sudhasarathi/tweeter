@@ -3,7 +3,7 @@
     display: flex;
   }
   span.bungee {
-    margin-left: 40px;
+    margin-left: 40px
   }
   header {
     height: 450px;
@@ -20,7 +20,7 @@
   main.container {
     margin-top: 180px;
     width: 60%;
-  }
+  } 
   div.error-container {
     width: 90%;
     margin: 0 5%;
@@ -32,19 +32,24 @@
   article.tweet {
     margin-right: 20px;
   }
+  
 }
+
 @media screen and (min-width: 2500px) {
   body {
     margin: 120px 10% 0;
   }
+
   header.profile {
     max-width: 850px;
   }
+
   article.tweet {
     max-width: 1200px;
   }
 }
-/* @media screen and (max-width: 1023px) {
+
+ /* @media screen and (max-width: 1023px) {
   .blue {
     background-color: #4057a100;
   }
@@ -52,9 +57,10 @@
     margin: 200px 0 0 0;
     padding-top: 3.5em;
     height: 500px;
-
+    
   }
   div.profile-img-wrapper {
     margin-top: em;
   }
 }  */
+  

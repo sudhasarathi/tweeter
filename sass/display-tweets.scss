@@ -1,7 +1,7 @@
 article.tweet {
   padding: 0.5em;
   border: 2px solid black;
-  margin: 0 0.1em 2em;
+  margin: 0 .1em 2em;
   transition: box-shadow 0.25s;
 }
 
@@ -18,10 +18,11 @@ article.tweet header {
 
 article.tweet header div {
   align-items: center;
+
 }
 
 div.profile-pic-username i {
-  margin-right: 0.5em;
+  margin-right: 0.5em
 }
 
 div.profile-pic-username img {
@@ -66,10 +67,11 @@ article.tweet footer div {
 
 article.tweet footer div i {
   font-size: 14px;
-  color: #f59a79;
+  color: #47569D;
   cursor: pointer;
+  
 }
 
 article.tweet footer div i:hover {
-  color: #f74904;
+  color: #C7992D;
 }

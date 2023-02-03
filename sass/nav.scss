@@ -1,32 +1,30 @@
+$background-colour:   rgb(55, 156, 160);
 nav {
   height: 120px;
-  width: 100%;
+  width:100% ;
   transition: background-color 0.5s;
   color: #FFFFFF;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   padding: 0 1.5em 1em;
-  position: fixed;
+  position:  fixed;
   top: 0;
   left: 0;
   /* background-color: darkolivegreen; */
 }
-
 .bungee {
-  font-family: "Bungee", sans-serif;
+  font-family: 'Bungee', sans-serif;
 }
 
 .red-icon {
   color: red;
 }
-
 nav div.flex-container-col {
   cursor: pointer;
 }
 
-nav div.flex-container-col i {
-  color: red;
+div #compose-tweet-btn i {
   animation: bounce 1.5s ease-in-out infinite;
   animation-direction: alternate-reverse;
 }
@@ -39,15 +37,15 @@ nav div.flex-container-col i {
     transform: translate(0, 8px);
   }
 }
+
 .hide {
-  display: none;
+display: none;
 }
 
 .noBGColor {
   background-color: none;
   opacity: 0.8;
 }
-
 .blue {
-  background-color: rgb(55, 156, 160);
+  background-color: $background-colour;
 }
